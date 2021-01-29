@@ -5,7 +5,7 @@ const DEFAULT_PLACEHOLDER_IMAGE = "https://m.media-amazon.com/images/M/MV5BMTczN
 
 const Movie = ({ movie }) => {
 
-    const poster = movie.poster == "" ? DEFAULT_PLACEHOLDER_IMAGE : movie.poster;
+    const poster = movie.poster === "" ? DEFAULT_PLACEHOLDER_IMAGE : movie.poster;
     return (
 
         <div className="movie">
