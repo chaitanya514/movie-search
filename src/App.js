@@ -12,24 +12,56 @@ const initialState = {
   errorMessage: null
 }
 
+const reducer = (state,action) =>{
+  switch(action.type){
+    case "SEARCH_MOVIES_REQUEST":
+      return{
+        ...state,
+        loading:true,
+        errorMessage:null
+      }
+      case "SEARCH_MOVIES_SUCCESS":
+        return {
+          ...state,
+          movie:action.payload,
+          loading:false
+        }
+        case "SEARCH_MOVIES_FAILURE" :
+          return {
+            ...state,
+            loading:false,
+            errorMessage:action.error
+          }
+          default:
+            return state;
+            
+            
 
+
+  }
+
+}
 
 const App = ()  =>{
 
-
+const [state,dispatch] = useReducer(reducer,initialState)
   useEffect(() => {
     fetch(MOVIE_API_URL)
       .then(res => res.json())
       .then(jsonResponse => {
-        setMovies(console.log(jsonResponse.Search))
-        setLoading(false)
+        dispatch({
+          type: "SEARCH_MOVIES_SUCCESS",
+          payload: jsonResponse.Search
+        })
       })
   }, []);
 
   const search = (searchValue) => {
-    setLoading(true);
-    setErrorMessage(null);
-    fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
+   dispatch({
+     type: "SEARCH_MOVIES_REQUEST"
+   })
+   
+    fetch(`https://www.omdbapi.com/?s=${sear  chValue}&apikey=4a3b711b`)
       .then(res => res.json())
       .then(jsonResponse => {
         if (jsonResponse.Response === "True") {
