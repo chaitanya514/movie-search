@@ -2,7 +2,7 @@ import React,{useState} from "react";
 
 
 
-const Search = (props) => {
+const Search = ({search}) => {
     const [searchValue,setSearchValue] = useState("")
 
    function handleSearchInputChanges(event){
@@ -16,7 +16,7 @@ const Search = (props) => {
 
    function callSearchFunction(event){
         event.preventDefault();
-        props.search(searchValue);  
+        search(searchValue);  
         resetInputField()
    }
     return (
