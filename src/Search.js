@@ -24,6 +24,7 @@ const Search = ({search}) => {
             <input type="text"
                 onChange={handleSearchInputChanges}
                 value = {searchValue}
+                placeholder="Search movies here..."
             />
             <input type="submit"
                 onClick={callSearchFunction}

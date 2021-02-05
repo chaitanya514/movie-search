@@ -9,7 +9,9 @@ const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";
 const initialState = {
   loading: true,
   movies: [],
-  errorMessage: null
+  errorMessage: null,
+  
+
 }
 
 const reducer = (state,action) =>{
@@ -79,7 +81,7 @@ const [state,dispatch] = useReducer(reducer,initialState)
   const {movies,errorMessage,loading} = state;
   return (
     <div className="App">
-    <Header text="HOOKED" />
+    <Header text="Movie Searching App" />
     <Search search={search} />
     <p className="App-intro">Sharing a few of our favourite movies</p>
     <div className="movies">

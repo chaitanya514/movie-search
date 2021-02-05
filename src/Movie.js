@@ -1,6 +1,5 @@
 import React from "react";
-
-
+import "./App.css";
 const DEFAULT_PLACEHOLDER_IMAGE = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg"
 
 const Movie = ({ movie }) => {
@@ -13,7 +12,7 @@ const Movie = ({ movie }) => {
     <h3>{movie.Title}</h3>
             </div>
 
-            <div>
+            <div className="movie-poster">
                 <img
                     src={poster}
                     width="200"
